@@ -1,0 +1,8 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+        io.github.nextjournal/clerk {:mvn/version "0.14.919"}
+        cryogen-core/cryogen-core {:mvn/version "0.4.2"}}
+ :aliases
+ {:build {:deps {io.github.seancorfield/build-clj
+                 {:git/tag "v0.4.0" :git/sha "54e39ae"}}
+          :ns-default build}}}
