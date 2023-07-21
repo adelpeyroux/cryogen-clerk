@@ -1,5 +1,6 @@
 (ns cryogen-clerk.core
   (:require [cryogen-core.markup :refer [markup-registry rewrite-hrefs]]
+            [nextjournal.clerk :as c]
             [clojure.string :as s])
   (:import cryogen_core.markup.Markup))
 
@@ -9,6 +10,9 @@
   [{:keys [blog-prefix]} text state]
   [(rewrite-hrefs blog-prefix text) state])
 
+(def tmp-file-name "tmp-post.txt")
+(def tmp-dir "./tmp-dir" )
+
 (defn clerk
   []
   (reify Markup
@@ -16,9 +20,13 @@
     (exts [this] #{".clj"})
     (render-fn [this]
       (fn [rdr config]
-        (->> (java.io.BufferedReader. rdr)
-             (line-seq)
-             (s/join "\n"))))))
+        (let [clj-content (->> (java.io.BufferedReader. rdr)
+                               (line-seq)
+                               (s/join "\n"))
+              _ (spit tmp-file-name clj-content)
+              _ (c/build! {:index tmp-file-name :out-path tmp-dir})
+              html-content (slurp (str tmp-dir "/index.html"))]
+          html-content)))))
 
 (defn init []
   (swap! markup-registry conj (clerk)))
