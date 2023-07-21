@@ -16,7 +16,9 @@
     (exts [this] #{".clj"})
     (render-fn [this]
       (fn [rdr config]
-        (str "From CLJ file " rdr " - " config)))))
+        (->> (java.io.BufferedReader. rdr)
+             (line-seq)
+             (s/join "\n"))))))
 
 (defn init []
   (swap! markup-registry conj (clerk)))
