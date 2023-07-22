@@ -1,2 +1,2 @@
-{:description "Markdown parser using an external command/program"
+{:description "Clerk Parser"
  :init cryogen-clerk.core/init}
