@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.clojars.adelpeyroux</groupId>
   <artifactId>cryogen-clerk</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <name>adelpeyroux/cryogen-clerk</name>
   <description>FIXME: my new library.</description>
   <url>https://github.com/adelpeyroux/cryogen-clerk</url>
@@ -22,7 +22,7 @@
     <url>https://github.com/adelpeyroux/cryogen-clerk</url>
     <connection>scm:git:git://github.com/adelpeyroux/cryogen-clerk.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/adelpeyroux/cryogen-clerk.git</developerConnection>
-    <tag>v0.1.0</tag>
+    <tag>v0.1.1</tag>
   </scm>
   <dependencies>
     <dependency>

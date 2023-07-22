@@ -24,7 +24,7 @@
                                (line-seq)
                                (s/join "\n"))
               _ (spit tmp-file-name clj-content)
-              _ (c/build! {:index tmp-file-name :out-path tmp-dir})
+              _ (c/build! {:index tmp-file-name :out-path tmp-dir :ssr true :compile-css true})
               html-content (slurp (str tmp-dir "/index.html"))]
           html-content)))))
 
